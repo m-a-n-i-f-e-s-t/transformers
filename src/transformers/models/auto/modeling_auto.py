@@ -733,6 +733,8 @@ MODEL_FOR_CAUSAL_LM_MAPPING_NAMES = OrderedDict(
         ("qwen2_moe", "Qwen2MoeForCausalLM"),
         ("qwen3", "Qwen3ForCausalLM"),
         ("qwen3_moe", "Qwen3MoeForCausalLM"),
+        ("powerqwen3_moe", "PowerQwen3MoeForCausalLM"),
+        ("powen3", "PowerQwen3ForCausalLM"),
         ("qwen3_next", "Qwen3NextForCausalLM"),
         ("recurrent_gemma", "RecurrentGemmaForCausalLM"),
         ("reformer", "ReformerModelWithLMHead"),

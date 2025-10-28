@@ -108,6 +108,7 @@ from .stopping_criteria import (
     StoppingCriteriaList,
     StopStringCriteria,
 )
+from ..models.powerqwen3_moe.kvgs_cache import DynamicCache as KVGSDynamicCache
 
 
 if TYPE_CHECKING:
@@ -2009,6 +2010,8 @@ class GenerationMixin(ContinuousMixin):
                 model_kwargs[cache_name] = DynamicCache(**dynamic_cache_kwargs, offloading=True)
             elif "dynamic" in generation_config.cache_implementation:
                 model_kwargs[cache_name] = DynamicCache(**dynamic_cache_kwargs)
+            elif generation_config.cache_implementation == "kvgs":
+                model_kwargs[cache_name] = KVGSDynamicCache()
 
         # Use DynamicCache instance by default. This will avoid back and forth from legacy format that
         # keeps copying the cache thus using much more memory
